@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ handalRenderClick }) {
   const navigate = useNavigate("/my-account");
   const [clickReset, setClickReset] = useState(false);
   ////--------------backClick----------//
   const handalBackToHomeClick = (position) => {
     if (position === "backToLogin") {
-      navigate("/my-account"); ///todo need to change the route
+      handalRenderClick("LogInBack");
+      //navigate("/my-account"); todo need to change the route
     } else if (position === "backToHome") {
       navigate("/my-account");
     }
