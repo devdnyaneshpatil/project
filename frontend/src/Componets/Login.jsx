@@ -69,7 +69,7 @@ function Login({ handalRenderClick }) {
           </svg>
         </button>
       </div>
-      <div className="text-center mb-6">
+      <div className="text-left mb-6">
         <h4 className="text-2xl font-semibold text-gray-700">Log In</h4>
       </div>
       <div className="mb-4">
@@ -92,9 +92,9 @@ function Login({ handalRenderClick }) {
         onClick={() => {
           handalSignInClick();
         }}
-        className="w-full py-2 mt-4 text-white bg-[#737272] rounded-lg hover:bg-blue-600"
+        className="w-full py-2 mt-4 text-white bg-[#737272] rounded-lg hover:black"
       >
-        Sign In
+        Log In
       </button>
       {clickReset ? (
         <div className="text-[#00ff7f] font-bold mt-10 text-center">
