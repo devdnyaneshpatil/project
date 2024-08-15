@@ -42,7 +42,11 @@
 .read-the-docs {
   color: #888;
 } */
+ .custom-border{
+  border-width: 10px;
+ }
 
+ 
 
 @tailwind base;
 @tailwind components;
