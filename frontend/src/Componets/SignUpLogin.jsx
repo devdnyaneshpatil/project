@@ -5,6 +5,7 @@ import SignUp from "./SignUp";
 
 function SignUpLogin() {
   const [emailContent, setEmailContent] = useState(false);
+  const navigate = useNavigate();
   const [componentRender, setReder] = useState({
     login: false,
     SignUpLogin: true,
@@ -17,7 +18,11 @@ function SignUpLogin() {
       setEmailContent(false);
     }
   };
-
+  ////-------back to home page
+  const handalBackToHomeClick = () => {
+    navigate("/my-account");
+  };
+  ///--------
   const handalRenderClick = (clickFrom) => {
     if (clickFrom === "SignUpLogin") {
       setEmailContent(false);
