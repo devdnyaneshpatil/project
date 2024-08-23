@@ -5,6 +5,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'], // Applying Poppins as the default sans font
+      },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
       }
