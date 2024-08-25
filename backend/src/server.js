@@ -1,6 +1,6 @@
 require("dotenv").config()
 require("./db").connectToMongo()
-//require("./models/postgres/index")
+require("./models/index")
 const http=require("http")
 const app=require("./app")
 
