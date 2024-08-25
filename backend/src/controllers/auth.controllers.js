@@ -88,7 +88,7 @@ const verifyOtpController = async (req, res, next) => {
 
     const token = jwt.sign({ userEmail: email }, JWT_SECRET)
     
-    const tokenKey = `user_token_${email}`;
+    const tokenKey = `user_token`;
     await redis.set(tokenKey, token, 'EX', 3600);
 
     return res.status(201).json({ msg: "User registered successfully" ,token});
