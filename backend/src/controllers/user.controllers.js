@@ -8,4 +8,14 @@ const getUserDetailsController = async (req, res, next) => {
     }
 }
 
-module.exports={getUserDetailsController}
+const updateUserController = async (req, res, next) => {
+    const userId=req.params.id
+    try {
+        const updateUser = await userContext.updateUserByUserId(userId, req.body)
+        return res.status(200).json({msg:"User updated successfully"})
+    } catch (error) {
+        next(error)
+    }
+}
+
+module.exports={getUserDetailsController,updateUserController}

@@ -3,9 +3,15 @@ const mongoose = require("mongoose");
 // Define the user schema
 const userSchema = new mongoose.Schema(
   {
-    name: {
+    firstName: {
       type: String,
       required:true,
+      trim: true, // Removes surrounding whitespace
+      minlength: [2, "Name must be at least 2 characters long"],
+      maxlength: [50, "Name cannot exceed 50 characters"],
+    },
+    lastName: {
+      type: String,
       trim: true, // Removes surrounding whitespace
       minlength: [2, "Name must be at least 2 characters long"],
       maxlength: [50, "Name cannot exceed 50 characters"],
@@ -38,6 +44,13 @@ const userSchema = new mongoose.Schema(
     isActive: {
       type: Boolean,
       default: true, // New users are active by default
+    },
+    mobile: {
+      type: String,
+    },
+    smsNotifications: {
+      type: Boolean,
+      default:false
     },
     createdAt: {
       type: Date,
