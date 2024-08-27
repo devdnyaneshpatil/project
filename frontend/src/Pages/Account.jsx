@@ -34,6 +34,7 @@ function Account() {
               </svg>
             }
             text={"Get $50"}
+            link={"/under-development"}
           />
           <Row
             svgcomp={
