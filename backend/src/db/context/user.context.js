@@ -5,6 +5,8 @@ const getUserByEmail = async (email) => {
     return user
 }
 
+const updateUserByUserId = async(userId,payload) =>{
+    const updatedUser=await User.findByIdAndUpdate(userId,payload)
+}
 
-
-module.exports={getUserByEmail}
+module.exports={getUserByEmail,updateUserByUserId}
