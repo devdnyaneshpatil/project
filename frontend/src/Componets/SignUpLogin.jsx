@@ -32,10 +32,10 @@ function SignUpLogin() {
       setReder({ ...componentRender, SignUpLogin: true, login: false });
     }
   };
-
+  
   if (componentRender.SignUpLogin) {
     return (
-      <div className="w-[30rem] bg-white p-8 shadow-lg rounded-lg centre margin-auto pb-20 mt-24 relative">
+      <div className="w-[30rem] bg-white p-8 shadow-lg rounded-lg mx-auto text-center pb-20 mt-24 relative">
         <div className="flex justify-between mb-6 ">
           <img
             src="https://d4u5qzkfpc9yt.cloudfront.net/ss_logo_01.png"
@@ -68,7 +68,9 @@ function SignUpLogin() {
           </h4>
         </div>
         <div className="mb-4">
-          <span className="block text-sm font-medium text-gray-600">Email</span>
+          <span className="block text-sm font-medium text-left text-gray-600">
+            Email
+          </span>
           <input
             onChange={(e) => {
               HandalChnage(e);
