@@ -6,6 +6,7 @@ import SignUpLogin from "./Componets/SignUpLogin";
 import OTPVerification from "./Componets/OTPVerification";
 import Profile from "./Pages/Profile";
 import UnderDevelopment from "./Pages/UnderDevelopment";
+import AllServices from "./Pages/AllServices";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Route path="/my-account" Component={Account} />
         <Route path="/appointment" Component={Appointment} />
         <Route path="/my-profile" Component={Profile} />
-        <Route path="/under-development" Component={UnderDevelopment}/>
+        <Route path="/under-development" Component={UnderDevelopment} />
+        <Route path="/all-services" Component={AllServices}/>
       </Routes>
     </div>
   );
