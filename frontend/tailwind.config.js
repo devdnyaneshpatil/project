@@ -5,26 +5,23 @@ export default {
   ],
   theme: {
     extend: {
-      // keyframes :{
-      //   slideIn:{
-      //     '0%': { transform: 'translateX(100%)', opacity: 0 },
-      //     '100%': { transform: 'translateX(0)', opacity: 1 },
-      //   },
-      // },
+      colors: {
+        oliveGreen: 'rgb(102, 125, 69)', // Define the custom color
+        bgColorBrown :'rgb(76, 76, 76)',
+      },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'], // Applying Poppins as the default sans font
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
-      }
-    },
-    screens: {
-      'sm': '300px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
+      },
+      screens: {
+        'sm': '300px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+      },
     },
   },
   plugins: [],
-}
-
+};
