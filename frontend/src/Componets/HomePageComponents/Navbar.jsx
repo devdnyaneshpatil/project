@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import Drawer from "./Drawer";
 
-function Navbar() {
-  const [bgColor, setBgColor] = useState("bg-white");
-  const handalClick = (color) => {
-    if (color === "white") {
-      setBgColor("bg-white");
-    } else {
-      setBgColor("bg-bgColorBrown opacity-75");
-    }
-  };
+function Navbar({ handalClick, bgColor }) {
+  // const [bgColor, setBgColor] = useState("bg-white");
+  // const handalClick = (color) => {
+  //   if (color === "white") {
+  //     setBgColor("bg-white");
+  //   } else {
+  //     setBgColor("bg-bgColorBrown opacity-75 ");
+  //   }
+  // };
   return (
     <>
       <div
-        className={`flex items-center justify-between p-8 border-inherit border ${bgColor}`}
+        className={`flex items-center justify-between p-8 border-inherit border`}
       >
         <Drawer handalClick={handalClick} />
         <img
