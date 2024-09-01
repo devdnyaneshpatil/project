@@ -8,6 +8,7 @@ export default {
       colors: {
         oliveGreen: 'rgb(102, 125, 69)', // Define the custom color
         bgColorBrown :'rgb(76, 76, 76)',
+        bgColorSearch:'rgb(244,235,222)'
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'], // Applying Poppins as the default sans font
