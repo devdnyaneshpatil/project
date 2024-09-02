@@ -5,7 +5,7 @@ function SearchHome() {
   return (
     <div className="sm:p-6 max-w-7xl flex flex-col lg:flex-row m-auto lg:p-0  bg-bgColorSearch">
       <div className="w-full lg:w-1/2 h-auto lg:h-96 relative flex justify-center items-center flex-col lg:pl-4">
-        <span className="sm:text-xl lg:text-3xl font-bold text-center lg:text-left">
+        <span className="sm:text-xl lg:text-3xl font-bold text-center lg:text-left mb-8">
           Discover & book local <br />
           beauty professionals
         </span>

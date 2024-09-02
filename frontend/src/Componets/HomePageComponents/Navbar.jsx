@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Drawer from "./Drawer";
+import { NavbarContext } from "../../Context/NavbarContext";
+import SignUpLogin from "../SignUpLogin";
 
-function Navbar({ handalClick, bgColor }) {
+function Navbar() {
+  const { handalClick, bgColor } = useContext(NavbarContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <>
       <div
@@ -14,7 +19,10 @@ function Navbar({ handalClick, bgColor }) {
           alt="Logo"
         />
         <div className="flex ">
-          <button className="hidden lg:block mr-3 p-1 font-semibold ">
+          <button
+            className="hidden lg:block mr-3 p-1 font-semibold "
+            onClick={() => setIsModalOpen(true)}
+          >
             Log In
           </button>
           <button
@@ -26,6 +34,7 @@ function Navbar({ handalClick, bgColor }) {
           </button>
         </div>
       </div>
+      <SignUpLogin isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </>
   );
 }

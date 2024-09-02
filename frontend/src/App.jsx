@@ -8,12 +8,20 @@ import Profile from "./Pages/Profile";
 import UnderDevelopment from "./Pages/UnderDevelopment";
 import AllServices from "./Pages/AllServices";
 import HomePage from "./Pages/HomePage";
+import { useContext } from "react";
+import { NavbarContext } from "./Context/NavbarContext";
+import Navbar from "./Componets/HomePageComponents/Navbar";
+import SearchPage from "./Pages/SearchPage";
 
 function App() {
+  // const { bgColor, handalClick } = useContext(NavbarContext);
+
   return (
     <div>
+      <Navbar />
       <Routes>
         <Route path="/" Component={HomePage} />
+        <Route path="/Product-display" Component={SearchPage} />
         <Route path="/OTP" Component={OTPVerification} />
         <Route path="/Sign-Up" Component={SignUpLogin} />
         <Route path="/my-account" Component={Account} />

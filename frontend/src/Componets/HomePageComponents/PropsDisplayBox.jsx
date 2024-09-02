@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ProductContext } from "../../Context/ProductPageContext";
 
 function PropsDisplayBox({ elm }) {
+  const { setSearchData, searchData } = useContext(ProductContext);
   const navigate = useNavigate();
   const handalClick = () => {
-    navigate(`/${elm.props}`);
+    setSearchData({ ...searchData, service: elm.props });
+    navigate(`/Product-display`);
   };
 
   return (
