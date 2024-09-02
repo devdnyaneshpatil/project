@@ -1,74 +1,14 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function SignUp({ handalRenderClick }) {
-  const navigate = useNavigate("/my-account");
-  const [clickReset, setClickReset] = useState(false);
-  ////--------------backClick----------//
-  const handalBackToHomeClick = (position) => {
-    if (position === "backToLogin") {
-      handalRenderClick("LogInBack");
-      //navigate("/my-account"); todo need to change the route
-    } else if (position === "backToHome") {
-      navigate("/my-account");
-    }
-  };
+function SignUp() {
   ////--------------SignIn------------
   const handalSignInClick = () => {
     /////////validate user cred are correct or not and navigate to respective page
   };
 
-  ///---- handalResetPassword
-  const handalResetPassword = () => {
-    ///logic to send email to reset
-    setClickReset(true);
-  };
-
   return (
-    <div className="w-[30rem] bg-white p-8 shadow-lg rounded-lg centre margin-auto pb-20 mt-10 relative">
-      <div className="flex justify-between mb-6">
-        <button
-          onClick={() => {
-            handalBackToHomeClick("backToLogin");
-          }}
-        >
-          <svg
-            class="h-5 w-5 text-stone-500"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            {" "}
-            <path stroke="none" d="M0 0h24v24H0z" />{" "}
-            <polyline points="15 6 9 12 15 18" />
-          </svg>
-        </button>
-        <button
-          className="text-blue-500"
-          onClick={() => {
-            handalBackToHomeClick("backToHome");
-          }}
-        >
-          <svg
-            class="h-5 w-5 text-stone-500"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-      </div>
+    <div className="w-[30rem] bg-white p-8 rounded-lg centre margin-auto pb-20 flex flex-col justify-center  relative">
       <div className="text-left mb-6">
         <h4 className="text-2xl font-semibold text-gray-700 ">Sign In</h4>
       </div>

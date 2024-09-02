@@ -1,21 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "../Componets/HomePageComponents/Navbar";
 import SearchHome from "../Componets/HomePageComponents/SearchHome";
 import PropsDisplayBox from "../Componets/HomePageComponents/PropsDisplayBox";
 import { ServiceProps } from "../Componets/HomePageComponents/Data";
+import { NavbarContext } from "../Context/NavbarContext";
 function HomePage() {
-  const [bgColor, setBgColor] = useState("bg-white");
-  const handalClick = (color) => {
-    if (color === "white") {
-      setBgColor("bg-white");
-    } else {
-      setBgColor("bg-bgColorBrown opacity-75 border-gray-50");
-    }
-  };
+  // const [bgColor, setBgColor] = useState("bg-white");
+  // const handalClick = (color) => {
+  //   if (color === "white") {
+  //     setBgColor("bg-white");
+  //   } else {
+  //     setBgColor("bg-bgColorBrown opacity-75 border-gray-50");
+  //   }
+  // };
 
+  const { bgColor } = useContext(NavbarContext);
   return (
     <div className={`lg:${bgColor}  `}>
-      <Navbar handalClick={handalClick} bgColor={bgColor} />
+      {/* <Navbar handalClick={handalClick} bgColor={bgColor} /> */}
       <SearchHome />
       <div className="flex flex-col">
         <span className="flex justify-center p-6 font-semibold text-lg">
