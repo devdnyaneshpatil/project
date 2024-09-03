@@ -2,6 +2,7 @@ const CustomError = require("../utils/customError");
 const redis = require("../utils/redis");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config/constants");
+const authContext=require("../db/context/auth.context")
 const auth = async (req, res, next) => {
   try {
     const tokenKey = `user_token`;
@@ -15,7 +16,8 @@ const auth = async (req, res, next) => {
       const err = new CustomError("Invalid token", 400);
       return next(err);
     }
-    req.email = decoded.userEmail;
+    const user= await authContext.getUserByEmail(decoded.userEmail)
+    req.user=user
     next();
   } catch (error) {
     next(error);
