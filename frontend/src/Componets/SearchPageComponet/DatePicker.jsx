@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import dayjs from "dayjs";
 import weekday from "dayjs/plugin/weekday";
 import localeData from "dayjs/plugin/localeData";
@@ -12,6 +12,8 @@ function DatePicker() {
   const [currentDate, setCurrentDate] = useState(dayjs());
   const [selectedDate, setSelectedDate] = useState(null);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+
+  const calendarRef = useRef(null);
 
   const daysInMonth = currentDate.daysInMonth();
   const firstDayOfMonth = currentDate.startOf("month").weekday();
@@ -33,13 +35,28 @@ function DatePicker() {
   };
 
   const formatSelectedDate = (date) => {
-    return date ? date.format("ddd, MMM Do") : "Select Date";
+    return date ? date.format("ddd, MMM Do") : "Date";
   };
+
+  const handleClickOutside = (event) => {
+    if (calendarRef.current && !calendarRef.current.contains(event.target)) {
+      setIsCalendarOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="relative">
       <div
-        className="flex border w-fit py-1 px-3 mt-1 rounded-full items-center gap-1 bg-white cursor-pointer"
+        className={`flex border w-fit py-1 px-3 mt-1 rounded-full items-center gap-1 cursor-pointer ${
+          selectedDate ? "bg-black text-white" : "bg-white"
+        }`}
         onClick={() => setIsCalendarOpen(!isCalendarOpen)}
       >
         <svg
@@ -59,7 +76,10 @@ function DatePicker() {
         <span className="text-xs">{formatSelectedDate(selectedDate)}</span>
       </div>
       {isCalendarOpen && (
-        <div className="absolute top-12 left-0 w-80 p-4 bg-white rounded-lg shadow-md z-10">
+        <div
+          ref={calendarRef}
+          className="absolute top-12 left-0 w-80 p-4 bg-white rounded-lg shadow-md z-10"
+        >
           <div className="flex justify-between items-center mb-4">
             <button onClick={handlePrevMonth} className="text-gray-600">
               &lt;
