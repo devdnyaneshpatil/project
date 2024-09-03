@@ -7,7 +7,7 @@ const { JWT_SECRET } = require("../config/constants");
 const redis = require("../utils/redis");
 
 const registerController = async (req, res, next) => {
-  const { firstName,email } = req.body;
+  const { firstName,email,role="User" } = req.body;
   try {
     const isValidData = validator(req.body, ["email","firstName"]);
     if (isValidData !== true) {
@@ -23,7 +23,7 @@ const registerController = async (req, res, next) => {
       return next(err);
     }
     const otp = Math.floor(1000 + Math.random() * 9000) + '';
-    redis.set(`user_otp_${email}`, JSON.stringify({ firstName, email, otp }), 'EX', 300);
+    redis.set(`user_otp_${email}`, JSON.stringify({ firstName, email, otp,role }), 'EX', 300);
     sendMail(email,"Registration",otp)
     return res.status(201).json({msg:"Otp sent successfully"})
   } catch (error) {
@@ -72,7 +72,7 @@ const verifyOtpController = async (req, res, next) => {
     }
 
     const parsedData = JSON.parse(userOtpData);
-    const { firstName, otp: storedOtp } = parsedData;
+    const { firstName, otp: storedOtp,role } = parsedData;
 
     // Check if the provided OTP matches the stored OTP
     if (storedOtp !== otp) {
@@ -81,7 +81,7 @@ const verifyOtpController = async (req, res, next) => {
     }
     // OTP is valid, proceed to register the user
     if (firstName) {
-      const user = await authContext.createNewUser({ firstName, email })
+      const user = await authContext.createNewUser({ firstName, email,role })
     }
     // Optionally, delete the OTP data from Redis after successful verification
     await redis.del(redisKey);
