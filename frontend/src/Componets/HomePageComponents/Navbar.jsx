@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Drawer from "./Drawer";
 import { NavbarContext } from "../../Context/NavbarContext";
-import SignUpLogin from "../SignUpLogin";
+import SignUpLogin from "./SignUpLogin";
 
 function Navbar() {
   const { handalClick, bgColor } = useContext(NavbarContext);

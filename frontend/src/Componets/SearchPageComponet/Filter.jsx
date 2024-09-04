@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 function Filter() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState("Select Filter");
+  const dropdownRef = useRef(null);
 
   const handleFilterSelect = (filter) => {
     setSelectedFilter(filter);
@@ -18,10 +19,32 @@ function Filter() {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
-    <div className="relative">
+    <div className="relative" ref={dropdownRef}>
       <div
-        className="flex border w-fit py-1 px-3 mt-1 rounded-full items-center gap-1 bg-white cursor-pointer"
+        className={`flex border w-fit py-1 px-3 mt-1 rounded-full items-center gap-1 cursor-pointer ${
+          selectedFilter !== "Select Filter"
+            ? "bg-black text-white"
+            : "bg-white"
+        }`}
         onClick={handleToggleDropdown}
       >
         <svg
