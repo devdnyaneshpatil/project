@@ -111,7 +111,7 @@ function SearchPage() {
           <Filter></Filter>
         </div>
         {/* {result from api need to render here} */}
-        <div className="mt-10 custom-service-height  overflow-y-scroll scrollbar-hide">
+        <div className=" mt-10 custom-service-height overflow-y-scroll lg:custom-scrollbar">
           <ServiceCard />
           <ServiceCard />
           <ServiceCard />

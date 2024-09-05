@@ -93,3 +93,23 @@ export const ServiceProps=[
       img:"https://www.styleseat.com/bundles/static/assets/home/landing_page/makeup_tile.jpg"
     }
 ]
+
+
+
+export const BusinessData = [
+  {
+    id: 1,
+    heading: "Grow your business",
+    desc: "Unlock business growth by using our marketing tools to attract new clients.",
+  },
+  {
+    id: 2,
+    heading: "Manage your business",
+    desc: "Take charge of your business and make booking and scheduling a breeze.",
+  },
+  {
+    id: 3,
+    heading: "Elevate your client experience",
+    desc: "Prioritize client satisfaction with features that create a seamless booking experience. ",
+  },
+];

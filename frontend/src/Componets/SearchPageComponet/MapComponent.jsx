@@ -21,7 +21,7 @@ function MapComponent({ latitude, longitude }) {
         center={position}
         zoom={13}
         scrollWheelZoom={false}
-        className="h-full w-full shadow-lg"
+        className="h-full w-full shadow-lg z-0"
       >
         <TileLayer
           // attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
