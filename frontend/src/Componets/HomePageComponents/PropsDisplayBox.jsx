@@ -7,7 +7,7 @@ function PropsDisplayBox({ elm }) {
   const navigate = useNavigate();
   const handalClick = () => {
     setSearchData({ ...searchData, service: elm.props });
-    navigate(`/Product-display`);
+    navigate(`/Product-display?category=${elm.props}`);
   };
 
   return (
