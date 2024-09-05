@@ -1,14 +1,38 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../Context/ProductPageContext";
 import DatePicker from "../Componets/SearchPageComponet/DatePicker";
 import Filter from "../Componets/SearchPageComponet/Filter";
 import MapComponent from "../Componets/SearchPageComponet/MapComponent";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
+import ServiceCard from "../Componets/SearchPageComponet/ServiceCard";
 
 function SearchPage() {
-  const { searchData } = useContext(ProductContext);
-  console.log(searchData);
+  //states management
+  const [services, setServices] = useState([]);
+
   const latitude = 40.7128;
   const longitude = -74.006;
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const category = queryParams.get("category");
+
+  const getServices = async (category) => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:8080/api/v1/service?category${category}`
+      );
+      setServices(data.data.services);
+      console.log(services);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getServices(category);
+  }, [category]);
+
   return (
     <div className="flex gap-5">
       <div className="sm:w-full sm:ml-0 lg:w-6/12 flex-col h-24 p-2 bg-bgColorSearch lg:ml-4 ">
@@ -87,6 +111,13 @@ function SearchPage() {
           <Filter></Filter>
         </div>
         {/* {result from api need to render here} */}
+        <div className="mt-10 custom-service-height  overflow-y-scroll scrollbar-hide">
+          <ServiceCard />
+          <ServiceCard />
+          <ServiceCard />
+          <ServiceCard />
+          <ServiceCard />
+        </div>
       </div>
       <div className="hidden lg:block w-1/2 ">
         <MapComponent latitude={latitude} longitude={longitude} />

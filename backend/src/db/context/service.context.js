@@ -8,14 +8,14 @@ const createService = async (payload) => {
 const getAllServices = async (query, sort, skip, limit) => {
   const services = await Service.find(query).sort(sort).skip(skip).limit(limit);
   return {
-      services,
-      totalPages:await Service.countDocuments(query)/limit
+    services,
+    totalPages: limit > 0 ? Math.ceil(totalDocuments / limit) : 1,
   };
 };
 
 const getServicesByProviderId = async (providerId) => {
-  const services = await Service.find({ userId: providerId })
-  return services
-}
+  const services = await Service.find({ userId: providerId });
+  return services;
+};
 
-module.exports = { createService, getAllServices ,getServicesByProviderId};
+module.exports = { createService, getAllServices, getServicesByProviderId };

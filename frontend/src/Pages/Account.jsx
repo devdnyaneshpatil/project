@@ -7,7 +7,6 @@ function Account() {
   console.log(data);
   return (
     <>
-      <Navbar />
       <div className="w-full  flex justify-center ">
         <div className="lg:w-4/5 sm:w-full pl-4 pt-4 bg-gray-100">
           <div className="mb-3">

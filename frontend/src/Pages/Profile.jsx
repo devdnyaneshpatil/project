@@ -68,7 +68,6 @@ function Profile() {
 
   return (
     <>
-      <Navbar />
       <div className="w-full flex justify-center">
         <div className="sm:w-full sm:bg-gray-50 md:w-3/4 p-8">
           <div>
