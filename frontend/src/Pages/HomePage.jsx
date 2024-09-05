@@ -4,6 +4,7 @@ import SearchHome from "../Componets/HomePageComponents/SearchHome";
 import PropsDisplayBox from "../Componets/HomePageComponents/PropsDisplayBox";
 import { ServiceProps } from "../Componets/HomePageComponents/Data";
 import { NavbarContext } from "../Context/NavbarContext";
+import SetBusinessDiv from "../Componets/HomePageComponents/SetBusinessDiv";
 function HomePage() {
   // const [bgColor, setBgColor] = useState("bg-white");
   // const handalClick = (color) => {
@@ -29,6 +30,14 @@ function HomePage() {
           })}
         </div>
       </div>
+      <SetBusinessDiv />
+      <div>hello</div>
+      <div>hello</div>
+      <div>hello</div>
+      <div>hello</div>
+      <div>hello</div>
+      <div>hello</div>
+      <div>hello</div>
     </div>
   );
 }
