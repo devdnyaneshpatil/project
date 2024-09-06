@@ -5,6 +5,10 @@ import PropsDisplayBox from "../Componets/HomePageComponents/PropsDisplayBox";
 import { ServiceProps } from "../Componets/HomePageComponents/Data";
 import { NavbarContext } from "../Context/NavbarContext";
 import SetBusinessDiv from "../Componets/HomePageComponents/SetBusinessDiv";
+import PayLaterDiv from "../Componets/HomePageComponents/PayLaterDiv";
+import RefFrendDiv from "../Componets/HomePageComponents/RefFrendDiv";
+import PopularHairStyleDiv from "../Componets/HomePageComponents/PopularHairStyleDiv";
+import Footer from "../Componets/HomePageComponents/Footer";
 function HomePage() {
   // const [bgColor, setBgColor] = useState("bg-white");
   // const handalClick = (color) => {
@@ -31,13 +35,10 @@ function HomePage() {
         </div>
       </div>
       <SetBusinessDiv />
-      <div>hello</div>
-      <div>hello</div>
-      <div>hello</div>
-      <div>hello</div>
-      <div>hello</div>
-      <div>hello</div>
-      <div>hello</div>
+      <PayLaterDiv />
+      <RefFrendDiv />
+      <PopularHairStyleDiv />
+      <Footer />
     </div>
   );
 }
