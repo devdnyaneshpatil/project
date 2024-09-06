@@ -37,7 +37,17 @@
   }
 }
 
+.main-div {
+  @apply relative w-full h-full overflow-hidden;
+}
 
+.scroll-container {
+  @apply flex overflow-x-auto snap-x snap-mandatory scroll-smooth;
+}
+
+.child-div {
+  @apply flex-shrink-0 w-full h-full snap-start;
+}
  
 
 @tailwind base;

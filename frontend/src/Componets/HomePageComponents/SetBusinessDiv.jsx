@@ -4,9 +4,9 @@ import { BusinessData } from "./Data";
 
 function SetBusinessDiv() {
   return (
-    <div className="sm:w-10/12 sm:h-[430px] sm:mt-8 rounded-md lg:w-9/12 justify-center flex items-center m-auto lg:mt-20 bg-[rgb(209,206,174)] h-[400px] relative ">
+    <div className="sm:w-10/12 sm:h-[530px] sm:mt-8 rounded-md lg:w-9/12 justify-center flex items-center m-auto lg:mt-20 bg-[rgb(209,206,174)] h-[400px] relative ">
       <img
-        className="z-0 absolute bottom-0 left-0 "
+        className="z-0 absolute bottom-0 left-0 sm:bottom-20 lg:bottom-0"
         src="https://www.styleseat.com/bundles/static/assets/home/landing_page/manny.png"
         alt="Img"
       />
@@ -20,10 +20,12 @@ function SetBusinessDiv() {
         <button className="sm:mt-0 bg-black text-sm text-white p-2 rounded-lg lg:mt-4">
           Learn More
         </button>
-        <div className=" w-full absolute bottom-4 flex  sm:overflow-x-auto ">
-          {BusinessData.map((elm) => {
-            return <BusinessInfoDiv key={elm.id} elm={elm} />;
-          })}
+        <div className="relative w-full h-full overflow-hidden rounded-md lg:ml-6">
+          <div className="lg:w-full  lg:absolute lg:bottom-4 lg:flex  flex overflow-x-auto snap-x snap-mandatory scroll-smooth sm:mt-56">
+            {BusinessData.map((elm) => {
+              return <BusinessInfoDiv key={elm.id} elm={elm} />;
+            })}
+          </div>
         </div>
       </div>
     </div>
