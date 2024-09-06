@@ -19,8 +19,9 @@ const data = [
 ];
 
 function BusinessInfoDiv({ elm }) {
+  // if(elm.id==1)
   return (
-    <div className=" ml-2 w-[300px] flex p-3 flex-col h-36 text-sm items-start gap-2 rounded-md bg-white relative  ">
+    <div className=" ml-2 lg:w-[300px] sm:w-[250px] flex p-3 flex-col lg:h-36 sm:h-32 text-sm items-start gap-2 rounded-md bg-white relative lg:flex-shrink sm:flex-shrink-0  sm:snap-start">
       <span className="font-bold ">{elm.heading}</span>
       <span className="text-xs">{elm.desc}</span>
       <button className="text-white bg-[rgb(102,125,69)] text-xs p-1.5 rounded-md absolute bottom-2">
