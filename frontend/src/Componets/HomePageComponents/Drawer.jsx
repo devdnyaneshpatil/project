@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import DrawerComponetPart from "./DrawerComponetPart";
 import { DataToWrap } from "./Data";
-
+import { DataToWrapClient } from "./Data";
+import { DataToWrapStyle } from "./Data";
+import SocialMediaIcon from "./SocialMediaIcon";
 const Drawer = ({ handalClick }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -10,7 +12,7 @@ const Drawer = ({ handalClick }) => {
   };
 
   return (
-    <div>
+    <div className="">
       <svg
         onClick={() => {
           toggleDrawer(), handalClick("black");
@@ -42,7 +44,7 @@ const Drawer = ({ handalClick }) => {
       <div
         className={`fixed inset-y-0 left-0 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } bg-white text-black transform transition-transform duration-300 ease-in-out z-50 w-full md:w-80`}
+        } bg-white overflow-y-auto scrollbar-hide text-black transform transition-transform duration-300 ease-in-out z-50 w-full md:w-80 pb-4`}
       >
         <div className="p-2">
           <div className="flex justify-end p-2">
@@ -81,7 +83,17 @@ const Drawer = ({ handalClick }) => {
           {DataToWrap.map((elm) => {
             return <DrawerComponetPart key={elm.id} elm={elm} />;
           })}
+          <h2 className="mt-4 mb-5 font-bold ml-3 text-xl">For Clients</h2>
+          {DataToWrapClient.map((elm) => {
+            return <DrawerComponetPart key={elm.id} elm={elm} />;
+          })}
+          <h2 className="mt-4 mb-5 font-bold ml-3 text-xl">StyleSeat</h2>
+          {DataToWrapStyle.map((elm) => {
+            return <DrawerComponetPart key={elm.id} elm={elm} />;
+          })}
         </div>
+        <h2 className="mt-4 mb-5 font-bold ml-5 text-sm">Follow Us</h2>
+        <SocialMediaIcon />
       </div>
     </div>
   );

@@ -31,6 +31,71 @@ export const DataToWrap = [
     },
   ];
 
+  export const DataToWrapClient = [
+    {
+      url: "M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z",
+      path: "provider/onboarding/signup",
+      text: "Sign up to book",
+      id: "1",
+    },
+    {
+      url:"m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25",
+      path: "provider/onboarding/signup",
+      text: "Home",
+      id: "2",
+    },
+    {
+      url: "m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" ,
+      path: "provider/onboarding/signup",
+      text: "Search",
+      id: "3",
+    },
+    {
+      url: "M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z",
+      path: "provider/onboarding/signup",
+      text: "How to book an appointment",
+      id: "4",
+    },
+    {
+      url:"M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z",
+      path: "provider/onboarding/signup",
+      text: "Get $50",
+      id: "5",
+    },
+  ];
+
+  export const DataToWrapStyle = [
+    {
+      url:"",
+      path: "provider/onboarding/signup",
+      text: "Blog",
+      id: "1",
+    },
+    {
+      url:"",
+      path: "provider/onboarding/signup",
+      text: "Help Center",
+      id: "2",
+    },
+    {
+      url:"",
+      path: "provider/onboarding/signup",
+      text: "Careers",
+      id: "3",
+    },
+    {
+      url:"",
+      path: "provider/onboarding/signup",
+      text: "Privacy",
+      id: "4",
+    },
+    {
+      url:"",
+      path: "provider/onboarding/signup",
+      text: "Terms of services for Pros",
+      id: "5",
+    },
+  ];
 export const ServiceProps=[
     {
       id:1,
@@ -113,3 +178,5 @@ export const BusinessData = [
     desc: "Prioritize client satisfaction with features that create a seamless booking experience. ",
   },
 ];
+
+
