@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema(
   {
     firstName: {
       type: String,
-      required:true,
+      required: true,
       trim: true, // Removes surrounding whitespace
       minlength: [2, "Name must be at least 2 characters long"],
       maxlength: [50, "Name cannot exceed 50 characters"],
@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["Admin", "ServiceProvider", "User"],
+      enum: ["Admin", "Provider", "User"],
       default: "User",
     },
     isActive: {
@@ -50,7 +50,7 @@ const userSchema = new mongoose.Schema(
     },
     smsNotifications: {
       type: Boolean,
-      default:false
+      default: false,
     },
     createdAt: {
       type: Date,
@@ -59,6 +59,63 @@ const userSchema = new mongoose.Schema(
     updatedAt: {
       type: Date,
       default: Date.now, // Automatically set the update date
+    },
+    saloonName: {
+      type: String,
+    },
+    rating: {
+      type: Number,
+      default: 5,
+    },
+    location: {
+      address: {
+        type: String,
+      },
+      city: {
+        type: String,
+      },
+      state: {
+        type: String,
+      },
+      postalCode: {
+        type: String,
+      },
+      phoneNumber: {
+        type: String,
+      },
+    },
+    availability: {
+      Sunday: {
+        open: String,
+        close: String,
+      },
+      Monday: {
+        open: String,
+        close: String,
+      },
+      Tuesday: {
+        open: String,
+        close: String,
+      },
+      Wednesday: {
+        open: String,
+        close: String,
+      },
+      Thursday: {
+        open: String,
+        close: String,
+      },
+      Friday: {
+        open: String,
+        close: String,
+      },
+      Saturday: {
+        open: String,
+        close: String,
+      },
+    },
+    instaUrl: {
+      type: String,
     },
   },
   {

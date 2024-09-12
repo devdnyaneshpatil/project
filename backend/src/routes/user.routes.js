@@ -4,5 +4,5 @@ const auth = require("../middlewares/auth.middleware")
 const userRouter=require("express").Router()
 
 userRouter.get("/get-user", auth, getUserDetailsController)
-userRouter.patch("/update-user/:id",auth,updateUserController)
+userRouter.patch("/update-user",auth,updateUserController)
 module.exports=userRouter

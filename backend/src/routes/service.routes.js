@@ -11,7 +11,7 @@ const serviceRouter = require("express").Router();
 serviceRouter.post(
   "/create-service",
   auth,
-  authorize(["ServiceProvider"]),
+  authorize(["Provider"]),
   createServiceController
 );
 serviceRouter.get("/", getAllServicesController);
