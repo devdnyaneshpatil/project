@@ -6,10 +6,12 @@ import MapComponent from "../Componets/SearchPageComponet/MapComponent";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import ServiceCard from "../Componets/SearchPageComponet/ServiceCard";
+import ServiceCardSkeleton from "../Componets/SearchPageComponet/ServiceCardSkeleton";
 
 function SearchPage() {
   //states management
   const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const latitude = 40.7128;
   const longitude = -74.006;
@@ -19,13 +21,17 @@ function SearchPage() {
 
   const getServices = async (category) => {
     try {
+      setLoading(true);
       const { data } = await axios.get(
-        `http://localhost:8080/api/v1/service?category${category}`
+        `http://localhost:8080/api/v1/service?category=${category}`
       );
       setServices(data.data.services);
-      console.log(services);
     } catch (error) {
       console.log(error);
+    } finally {
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
     }
   };
 
@@ -112,11 +118,18 @@ function SearchPage() {
         </div>
         {/* {result from api need to render here} */}
         <div className=" mt-10 custom-service-height overflow-y-scroll lg:custom-scrollbar">
-          <ServiceCard />
-          <ServiceCard />
-          <ServiceCard />
-          <ServiceCard />
-          <ServiceCard />
+          {loading ? (
+            <>
+              {/* Display loading skeletons here, you can repeat up to 3 */}
+              {[...Array(3)].map((_, index) => (
+                <ServiceCardSkeleton key={index} />
+              ))}
+            </>
+          ) : (
+            services.map((service) => (
+              <ServiceCard key={service._id} service={service} />
+            ))
+          )}
         </div>
       </div>
       <div className="hidden lg:block w-1/2 ">
