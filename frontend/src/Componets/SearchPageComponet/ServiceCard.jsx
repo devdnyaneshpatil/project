@@ -1,9 +1,9 @@
 import React from "react";
 import { FaCrown } from "react-icons/fa";
 import ServiceButton from "./ServiceButton";
+import { Link } from "react-router-dom";
 
 function ServiceCard({ service }) {
-  console.log(service)
   return (
     <div className="w-full  grid md:grid-cols-3 md:grid-rows-2 md:gap-x-2  border-2 mb-4 border-gray-200 rounded-lg sm:grid-cols-1 sm:grid-rows-custom-rows sm:gap-x-0 sm:gap-y-2">
       {/* Left Image Grid */}
@@ -46,8 +46,8 @@ function ServiceCard({ service }) {
           className="h-16 w-16 object-cover rounded-full border-2"
         />
         <div>
-          <h6 className="text-sm font-semibold">{ `${service.user.firstName} ${service.user.lastName}`}</h6>
-          <p className="text-xs text-gray-500">{ service.user.saloonName}</p>
+          <h6 className="text-sm font-semibold">{`${service.user.firstName} ${service.user.lastName}`}</h6>
+          <p className="text-xs text-gray-500">{service.user.saloonName}</p>
           {/* Badge and Rating */}
           <div className="flex items-center space-x-2 mt-1">
             <div className="flex w-3/4 items-center space-x-1 bg-yellow-200 text-yellow-800 px-2 py-1 rounded-full text-xs font-semibold">
@@ -62,11 +62,16 @@ function ServiceCard({ service }) {
       {/* Services and Pricing */}
       <div className="md:col-span-2 md:row-span-2 md:space-x-2 sm:row-span-1 sm:col-span-1 sm:row-start-3 sm:overflow-x-auto  sm:flex sm:flex-nowrap sm:space-x-2 md:block md:space-y-2 sm:scroll-smooth sm:scrollbar-hide">
         <button className="bg-black text-white py-1 px-3 text-xs rounded-xl flex-shrink-0 max-h-10">
-          See All Services
+          <Link to={`/all-services?userId=${service.user._id}`} > See All Services</Link>
         </button>
-        {
-          service.services.map((el, i) => <ServiceButton key={el._id} serviceName={el.serviceName} time={el.time } price={el.price} />)
-        }
+        {service.services.map((el, i) => (
+          <ServiceButton
+            key={el._id}
+            serviceName={el.serviceName}
+            time={el.time}
+            price={el.price}
+          />
+        ))}
       </div>
     </div>
   );

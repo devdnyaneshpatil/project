@@ -37,7 +37,7 @@ function SearchPage() {
 
   useEffect(() => {
     getServices(category);
-  }, [category]);
+  }, []);
 
   return (
     <div className="flex gap-5">

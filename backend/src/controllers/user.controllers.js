@@ -1,4 +1,7 @@
-const userContext=require("../db/context/user.context")
+const userContext = require("../db/context/user.context")
+const CustomError = require("../utils/customError")
+
+//this is the route to show user hid profile 
 const getUserDetailsController = async (req, res, next) => {
     try {
         const user = await userContext.getUserByEmail(req.user.email)
@@ -17,4 +20,16 @@ const updateUserController = async (req, res, next) => {
     }
 }
 
-module.exports={getUserDetailsController,updateUserController}
+//this is the specific route to get providers details to show it on the all-services page
+const getProviderDetailsController = async (req, res, next) => {
+    const providerId=req.params.id
+    try {
+        const data = await userContext.getProviderDetails(providerId)
+        return res.status(200).json({data})
+    } catch (error) {
+        const err = new CustomError(`Internal Server Error:-${error.message}`, 500)
+        return next(err)
+    }
+}
+
+module.exports={getUserDetailsController,updateUserController,getProviderDetailsController}
