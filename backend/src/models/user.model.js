@@ -117,6 +117,10 @@ const userSchema = new mongoose.Schema(
     instaUrl: {
       type: String,
     },
+    imageUrl: {
+      type: String,
+      default:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR82V_f6NZe1yfjjJb9V0KsxbkG5Pq5PZWgtMR_u2ywyTOK7-2HsWjFyL7lhu6i-SCwuIU&usqp=CAU'
+    }
   },
   {
     timestamps: true, // Automatically add `createdAt` and `updatedAt` fields
