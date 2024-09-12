@@ -12,4 +12,9 @@ const updateUserByUserId = async(userId,payload) =>{
     return updatedUser
 }
 
-module.exports={getUserByEmail,updateUserByUserId}
+const getProviderDetails = async (userId) => {
+    const provider = await User.findOne({ _id: userId })
+    return provider
+}
+
+module.exports={getUserByEmail,updateUserByUserId,getProviderDetails}
