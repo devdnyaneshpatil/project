@@ -1,8 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Navbar from "../Componets/HomePageComponents/Navbar";
+import { motion } from "framer-motion";
+
+const spring = {
+  type: "spring",
+  stiffness: 700,
+  damping: 30
+};
 
 function Profile() {
+  //state for handling toggle of sms
+  const [isOn, setIsOn] = useState(false);
+  const toggleSwitch = () => setIsOn(!isOn);
+  console.log(isOn);
+  //state for handling toggle of sms ends
+
   const [userData, setUserData] = useState({
     _id: null,
     firstName: "",
@@ -61,7 +73,7 @@ function Profile() {
           smsNotifications: data.smsNotifications || false,
         });
       }
-      console.log(data); // Log the fetched data
+      console.log(data);
     };
     getUserData();
   }, []);
@@ -146,19 +158,24 @@ function Profile() {
                 />
               </div>
 
-              <div className="flex items-center space-x-4">
-                <label className="flex items-center">
-                  <input
-                    type="checkbox"
-                    name="smsNotifications"
-                    className="w-4 h-4 text-gray-400 border-gray-200 rounded focus:ring-gray-300"
-                    checked={userData.smsNotifications} // Controlled checkbox
-                    onChange={handleChange}
-                  />
-                  <span className="ml-2 text-xs">SMS Notifications</span>
+              <div>
+                <label className="block text-xs font-medium mb-2">
+                  SMS Notifications
                 </label>
+                <div
+                  className={`border-2 border-black w-14  flex p-1  rounded-3xl  cursor-pointer ${
+                    isOn ? "justify-end bg-white" : "justify-start bg-slate-300"
+                  }`}
+                  onClick={toggleSwitch}
+                >
+                  <motion.div
+                    className={`w-7 h-7 rounded-full ${
+                      isOn ? "bg-black" : "bg-white"
+                      }`}
+                    layout transition={spring}
+                  ></motion.div>
+                </div>
               </div>
-
               <div>
                 <p className="text-xs">
                   Yes, send me automated appointment reminders & info about my
